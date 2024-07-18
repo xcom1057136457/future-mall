@@ -2,6 +2,9 @@
 <script lang="ts" setup>
 import { Random } from 'mockjs'
 import { getBasicData } from '@/api/home'
+import swipe1 from '@/assets/images/home/swipe-1.jpg'
+import swipe2 from '@/assets/images/home/swipe-2.jpg'
+import swipe3 from '@/assets/images/home/swipe-3.jpg'
 
 defineOptions({
   name: 'Home',
@@ -133,13 +136,13 @@ function handleGoDetail(id: any) {
     lazy-render
   >
     <van-swipe-item>
-      <van-image src="/images/home/swipe-1.jpg" />
+      <van-image :src="swipe1" />
     </van-swipe-item>
     <van-swipe-item>
-      <van-image src="/images/home/swipe-2.jpg" />
+      <van-image :src="swipe2" />
     </van-swipe-item>
     <van-swipe-item>
-      <van-image src="/images/home/swipe-3.jpg" />
+      <van-image :src="swipe3" />
     </van-swipe-item>
   </van-swipe>
 

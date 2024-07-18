@@ -75,7 +75,7 @@ function handleBuy() {
               rounded-full
               bg-gray-100
               text="xs black/80"
-              :class="{ 'bg-red text-white': skuValue.color === item.value }"
+              :class="{ 'bg-red !text-white': skuValue.color === item.value }"
               @click="skuValue.color = item.value"
             >
               {{ item.label }}
@@ -96,7 +96,7 @@ function handleBuy() {
               rounded-full
               bg-gray-100
               text="xs black/60"
-              :class="{ 'bg-red text-white': skuValue.capacity === item }"
+              :class="{ 'bg-red !text-white': skuValue.capacity === item }"
               @click="skuValue.capacity = item"
             >
               {{ `${item} G` }}
