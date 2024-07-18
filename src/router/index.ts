@@ -64,12 +64,20 @@ const routes: RouteRecordRaw[] = [
         },
       },
       {
-        path: '/productDetails/:id',
-        name: 'ProductDetails',
-        component: () => import('@/views/productDetails/index.vue'),
+        path: '/product/detail/:id',
+        name: 'ProductDetail',
+        component: () => import('@/views/product/detail.vue'),
         meta: {
           title: '商品详情',
           noCache: true,
+        },
+      },
+      {
+        path: '/product/list',
+        name: 'ProductList',
+        component: () => import('@/views/product/list.vue'),
+        meta: {
+          title: '商品列表',
         },
       },
       {
@@ -120,6 +128,15 @@ const routes: RouteRecordRaw[] = [
         component: () => import('@/views/address/index.vue'),
         meta: {
           title: '收货地址',
+          noCache: true,
+        },
+      },
+      {
+        path: '/address/:type/:id?',
+        name: 'AddressAdd',
+        component: () => import('@/views/address/add.vue'),
+        meta: {
+          title: '收货地址管理',
           noCache: true,
         },
       },

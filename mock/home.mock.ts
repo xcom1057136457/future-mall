@@ -342,7 +342,7 @@ export default [
   {
     url: '/home/detail',
     method: 'get',
-    timeout: 1000,
+    timeout: 300,
     response: () => {
       return {
         ...SUCCESS_RESPONSE,

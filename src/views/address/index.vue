@@ -6,6 +6,8 @@ defineOptions({
   name: 'AddressPage',
 })
 
+const router = useRouter()
+
 const chosenAddressId = ref('')
 
 // 加载收货地址列表
@@ -31,10 +33,25 @@ async function loadAddressList() {
 loadAddressList()
 
 // 新增地址
-function handleAdd() {}
+function handleAdd() {
+  router.push({
+    name: 'AddressAdd',
+    params: {
+      type: 'add',
+    },
+  })
+}
 
 // 修改地址
-function handleEdit() {}
+function handleEdit(cellItem: any) {
+  router.push({
+    name: 'AddressAdd',
+    params: {
+      type: 'edit',
+      id: cellItem?.id,
+    },
+  })
+}
 </script>
 
 <template>

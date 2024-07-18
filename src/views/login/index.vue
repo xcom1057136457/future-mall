@@ -17,8 +17,8 @@ const accountFormParams = ref({
   <van-nav-bar
     title="登录"
     left-text="返回"
-    left-arrow
     safe-area-inset-top
+    left-arrow
     fixed
     :z-index="10"
     @click-left="() => router.back()"
@@ -30,7 +30,7 @@ const accountFormParams = ref({
         <svg-icon icon-class="planet" text-180px />
       </div>
 
-      <div space-y-6>
+      <div mb-8 space-y-6>
         <div
           border="~ solid gray-200"
           p="x-3 y-2"
@@ -101,7 +101,7 @@ const accountFormParams = ref({
         </div>
       </div>
 
-      <div absolute bottom-90px left-0 right-0>
+      <div>
         <div mb-7 flex items-center justify-center gap-x-9>
           <van-icon name="wechat" text="3xl black/60" />
 

@@ -12,7 +12,8 @@ const num = ref(1)
 
 const mark = ref('')
 
-function handleSubmit() {}
+// 优惠券
+const couponShow = ref(false)
 </script>
 
 <template>
@@ -32,7 +33,15 @@ function handleSubmit() {}
       <div i-solar-alt-arrow-right-line-duotone />
     </div>
 
-    <div flex items-center justify-between rounded-lg bg-white p-3 @click="router.push({ name: 'AddressPage' })">
+    <div
+      flex
+      items-center
+      justify-between
+      rounded-lg
+      bg-white
+      p-3
+      @click="router.push({ name: 'AddressPage' })"
+    >
       <div flex items-center gap-x-3>
         <div i-solar-map-point-wave-bold-duotone text-lg />
 
@@ -82,7 +91,15 @@ function handleSubmit() {}
       </div>
     </div>
 
-    <div flex items-center justify-between rounded-lg bg-white p-3>
+    <div
+      flex
+      items-center
+      justify-between
+      rounded-lg
+      bg-white
+      p-3
+      @click="couponShow = true"
+    >
       <div flex items-center gap-x-3 text="sm black/80" font-semibold>
         <div i-solar-server-outline text-lg />
         <div>优惠券</div>
@@ -154,7 +171,15 @@ function handleSubmit() {}
     </div>
   </div>
 
-  <van-submit-bar :price="842700" label="实付款" button-text="提交订单" placeholder @submit="handleSubmit" />
+  <van-submit-bar
+    :price="842700"
+    label="实付款"
+    button-text="提交订单"
+    placeholder
+    @submit="() => router.push({ name: 'Pay', params: { money: 8427 } })"
+  />
+
+  <coupon-pop v-model:visible="couponShow" />
 </template>
 
 <style lang="scss" scoped></style>

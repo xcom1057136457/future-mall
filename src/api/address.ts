@@ -7,3 +7,27 @@ export function getAddressList() {
     method: 'get',
   })
 }
+
+// 新增地址
+export function addAddress() {
+  return request({
+    url: '/address/add',
+    method: 'post',
+  })
+}
+
+// 修改地址
+export function editAddress() {
+  return request({
+    url: '/address/edit',
+    method: 'put',
+  })
+}
+
+// 删除地址
+export function deleteAddress() {
+  return request({
+    url: '/address/delete',
+    method: 'delete',
+  })
+}

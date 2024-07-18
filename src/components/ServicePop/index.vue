@@ -8,7 +8,7 @@ const serviceShow = defineModel('visible', { type: Boolean, default: false })
 </script>
 
 <template>
-  <van-popup v-model:show="serviceShow" position="bottom" closeable round>
+  <van-popup v-model:show="serviceShow" position="bottom" round closeable>
     <div p-5>
       <div text="base center black/80" mb-8 font-semibold>
         服务说明

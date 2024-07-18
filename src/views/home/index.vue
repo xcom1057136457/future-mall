@@ -104,10 +104,17 @@ loadBasicData()
 // 进入详情页
 function handleGoDetail(id: any) {
   router.push({
-    name: 'ProductDetails',
+    name: 'ProductDetail',
     params: {
       id,
     },
+  })
+}
+
+// 进入商品列表
+function handleGoProductList() {
+  router.push({
+    name: 'ProductList',
   })
 }
 </script>
@@ -153,6 +160,7 @@ function handleGoDetail(id: any) {
         :key="item.id"
         flex="~ col"
         items-center
+        @click="handleGoProductList"
       >
         <img v-lazy="item.icon" h-45px w-45px object-cover>
         <div mt-2 text="xs center black/80">
@@ -201,7 +209,13 @@ function handleGoDetail(id: any) {
       </div>
 
       <div flex="~ nowrap" overflow="y-hidden x-auto" snap-x gap-x-2>
-        <div v-for="item in groupBuying" :key="item.id" relative snap-start>
+        <div
+          v-for="item in groupBuying"
+          :key="item.id"
+          relative
+          snap-start
+          @click="handleGoDetail(item.id)"
+        >
           <img v-lazy="item.image" h-120px w-120px object-cover>
           <div mb-2 w-120px truncate text="sm black/80">
             {{ item.title }}
@@ -241,7 +255,11 @@ function handleGoDetail(id: any) {
     </div>
 
     <div grid="~ cols-2" gap-2>
-      <div v-for="item in popularRecommendations" :key="item.id">
+      <div
+        v-for="item in popularRecommendations"
+        :key="item.id"
+        @click="handleGoDetail(item.id)"
+      >
         <div relative overflow-hidden rounded-lg bg-white>
           <img v-lazy="item.image" h-175px w-full object-cover alt="">
           <div p="x-1 y-1">

@@ -16,6 +16,7 @@
   "dependencies": {
     "@tsparticles/slim": "^3.5.0",
     "@tsparticles/vue3": "^3.0.1",
+    "@vant/area-data": "^1.5.1",
     "@vueuse/core": "^10.11.0",
     "@vueuse/head": "^2.0.0",
     "@vueuse/integrations": "^10.11.0",
