@@ -98,9 +98,11 @@ declare global {
   const shallowReactive: typeof import('vue')['shallowReactive']
   const shallowReadonly: typeof import('vue')['shallowReadonly']
   const shallowRef: typeof import('vue')['shallowRef']
+  const showConfirmDialog: typeof import('vant/es')['showConfirmDialog']
   const showFailToast: typeof import('vant/es')['showFailToast']
   const showImagePreview: typeof import('vant/es')['showImagePreview']
   const showLoadingToast: typeof import('vant/es')['showLoadingToast']
+  const showSuccessToast: typeof import('vant/es')['showSuccessToast']
   const showToast: typeof import('vant/es')['showToast']
   const storeToRefs: typeof import('pinia')['storeToRefs']
   const syncRef: typeof import('@vueuse/core')['syncRef']
@@ -410,9 +412,11 @@ declare module 'vue' {
     readonly shallowReactive: UnwrapRef<typeof import('vue')['shallowReactive']>
     readonly shallowReadonly: UnwrapRef<typeof import('vue')['shallowReadonly']>
     readonly shallowRef: UnwrapRef<typeof import('vue')['shallowRef']>
+    readonly showConfirmDialog: UnwrapRef<typeof import('vant/es')['showConfirmDialog']>
     readonly showFailToast: UnwrapRef<typeof import('vant/es')['showFailToast']>
     readonly showImagePreview: UnwrapRef<typeof import('vant/es')['showImagePreview']>
     readonly showLoadingToast: UnwrapRef<typeof import('vant/es')['showLoadingToast']>
+    readonly showSuccessToast: UnwrapRef<typeof import('vant/es')['showSuccessToast']>
     readonly showToast: UnwrapRef<typeof import('vant/es')['showToast']>
     readonly storeToRefs: UnwrapRef<typeof import('pinia')['storeToRefs']>
     readonly syncRef: UnwrapRef<typeof import('@vueuse/core')['syncRef']>
@@ -714,9 +718,11 @@ declare module '@vue/runtime-core' {
     readonly shallowReactive: UnwrapRef<typeof import('vue')['shallowReactive']>
     readonly shallowReadonly: UnwrapRef<typeof import('vue')['shallowReadonly']>
     readonly shallowRef: UnwrapRef<typeof import('vue')['shallowRef']>
+    readonly showConfirmDialog: UnwrapRef<typeof import('vant/es')['showConfirmDialog']>
     readonly showFailToast: UnwrapRef<typeof import('vant/es')['showFailToast']>
     readonly showImagePreview: UnwrapRef<typeof import('vant/es')['showImagePreview']>
     readonly showLoadingToast: UnwrapRef<typeof import('vant/es')['showLoadingToast']>
+    readonly showSuccessToast: UnwrapRef<typeof import('vant/es')['showSuccessToast']>
     readonly showToast: UnwrapRef<typeof import('vant/es')['showToast']>
     readonly storeToRefs: UnwrapRef<typeof import('pinia')['storeToRefs']>
     readonly syncRef: UnwrapRef<typeof import('@vueuse/core')['syncRef']>

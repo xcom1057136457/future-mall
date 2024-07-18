@@ -1,5 +1,7 @@
 <!-- 由 Dioa 创建于 2024-07-17 星期三 -->
 <script lang="ts" setup>
+import vipBuyBg from '@/assets/images/vip/vip-buy-bg.png'
+
 defineOptions({
   name: 'VipBuy',
 })
@@ -38,7 +40,7 @@ const rightsAndInterests = ref([
 <template>
   <div p-2 space-y-3>
     <div
-      bg="[url(/images/vip/vip-buy-bg.png)] no-repeat cover center"
+      bg="no-repeat cover center"
       p="t-20px x-25px b-15px"
       flex="~ col"
       box-border
@@ -46,6 +48,7 @@ const rightsAndInterests = ref([
       justify-between
       overflow-hidden
       rounded-10px
+      :style="{ backgroundImage: `url(${vipBuyBg})` }"
     >
       <div flex items-center justify-between>
         <div flex gap-x-2>

@@ -31,17 +31,6 @@ loadLocationData()
 </script>
 
 <template>
-  <van-nav-bar
-    title="地址"
-    left-text="返回"
-    left-arrow
-    placeholder
-    safe-area-inset-top
-    fixed
-    :z-index="10"
-    @click-left="() => router.back()"
-  />
-
   <van-index-bar :sticky-offset-top="46">
     <template v-for="item in locationList" :key="item.initial">
       <van-index-anchor :index="item.initial" />

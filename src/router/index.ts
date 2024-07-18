@@ -73,11 +73,20 @@ const routes: RouteRecordRaw[] = [
         },
       },
       {
-        path: '/orderCreate/:id',
+        path: '/order/create/:id',
         name: 'OrderCreate',
-        component: () => import('@/views/orderCreate/index.vue'),
+        component: () => import('@/views/order/create.vue'),
         meta: {
           title: '创建订单',
+        },
+      },
+      {
+        path: '/order/detail',
+        name: 'OrderDetail',
+        component: () => import('@/views/order/detail.vue'),
+        meta: {
+          title: '订单详情',
+          noCache: true,
         },
       },
       {
@@ -94,6 +103,24 @@ const routes: RouteRecordRaw[] = [
         component: () => import('@/views/pay/index.vue'),
         meta: {
           title: '订单支付',
+          noCache: true,
+        },
+      },
+      {
+        path: '/pay/success',
+        name: 'PaySuccess',
+        component: () => import('@/views/pay/success.vue'),
+        meta: {
+          title: '支付成功',
+        },
+      },
+      {
+        path: '/address',
+        name: 'AddressPage',
+        component: () => import('@/views/address/index.vue'),
+        meta: {
+          title: '收货地址',
+          noCache: true,
         },
       },
     ],

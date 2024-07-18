@@ -13,6 +13,7 @@ declare module 'vue' {
     ServicePop: typeof import('./components/ServicePop/index.vue')['default']
     SkuPop: typeof import('./components/SkuPop/index.vue')['default']
     SvgIcon: typeof import('./components/SvgIcon/index.vue')['default']
+    VanAddressList: typeof import('vant/es')['AddressList']
     VanBackTop: typeof import('vant/es')['BackTop']
     VanCell: typeof import('vant/es')['Cell']
     VanCellGroup: typeof import('vant/es')['CellGroup']
