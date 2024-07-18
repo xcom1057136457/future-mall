@@ -1,1 +1,0 @@
-import{s as e}from"../request/request.bIsPAW7v.js";function s(){return e({url:"/address/list",method:"get"})}function t(){return e({url:"/address/add",method:"post"})}function r(){return e({url:"/address/edit",method:"put"})}function u(){return e({url:"/address/delete",method:"delete"})}export{t as a,u as d,r as e,s as g};
