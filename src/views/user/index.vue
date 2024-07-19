@@ -1,23 +1,129 @@
 <!-- 由 Dioa 创建于 2024-07-15 星期一 -->
 <script lang="ts" setup>
+import { getBasicData } from '@/api/home'
+
 defineOptions({
   name: 'User',
 })
 
 const router = useRouter()
+
+const { token, userInfo } = storeToRefs(useUserStore())
+
+const { logout } = useUserStore()
+
+// 签到
+function handleSignIn() {
+  if (token.value) {
+    router.push({
+      name: 'IntegralSignIn',
+    })
+  }
+  else {
+    router.push('/login')
+  }
+}
+
+// 获取我的足迹
+const popularRecommendations = ref<any[]>([])
+
+async function loadBasicData() {
+  const loading = showLoadingToast({
+    message: '加载中...',
+    duration: 0,
+    forbidClick: true,
+  })
+  try {
+    const { code, data }: any = await getBasicData()
+    if (code === 200) {
+      popularRecommendations.value = data?.popularRecommendations ?? []
+    }
+  }
+  finally {
+    loading.close()
+  }
+}
+
+onMounted(() => {
+  if (token.value) {
+    loadBasicData()
+  }
+})
+
+// 退出登录
+function handleLogout() {
+  showConfirmDialog({
+    title: '系统通知',
+    message: '是否退出登录?',
+  })
+    .then(async () => {
+      const loading = showLoadingToast({
+        message: '加载中...',
+        forbidClick: true,
+        duration: 0,
+      })
+      try {
+        await logout()
+        setTimeout(() => {
+          showSuccessToast({
+            message: '退出登录成功!',
+          })
+        })
+      }
+      finally {
+        loading.close()
+      }
+    })
+    .catch(() => {})
+}
 </script>
 
 <template>
   <div px-2>
     <div flex items-center justify-between py-5>
-      <div flex items-center gap-x-2>
+      <div
+        v-if="!token"
+        flex
+        items-center
+        gap-x-2
+        @click="router.push('/login')"
+      >
         <svg-icon text-70px icon-class="login-avatar" />
         <div text="base black/80" font-semibold>
           去登录
         </div>
       </div>
 
-      <div p="x-4 y-2" flex items-center gap-x-3 rounded-lg bg-red text-white>
+      <div v-else flex items-center gap-x-2>
+        <img
+          :src="userInfo.avatar"
+          h-70px
+          w-70px
+          rounded-full
+          object-cover
+          alt="avatar"
+        >
+
+        <div flex="~ col">
+          <div text="base black/80" mb-1 font-semibold>
+            {{ userInfo.nickname }}
+          </div>
+          <div text="xs black/80">
+            幸福生活在招手
+          </div>
+        </div>
+      </div>
+
+      <div
+        p="x-4 y-2"
+        flex
+        items-center
+        gap-x-3
+        rounded-lg
+        bg-red
+        text-white
+        @click="handleSignIn"
+      >
         <div i-solar-calendar-mark-bold-duotone text-xl />
         <div text-sm>
           签到
@@ -34,7 +140,15 @@ const router = useRouter()
           </div>
         </div>
 
-        <div text="red xs" border="~ solid red" rounded-2xl p="x-3 y-1">
+        <div
+          text="red xs"
+          border="~ solid red"
+          rounded-2xl
+          p="x-3 y-1"
+          @click="
+            () => (token ? router.push('/vipBuy') : router.push('/login'))
+          "
+        >
           立即开通
         </div>
       </div>
@@ -45,9 +159,10 @@ const router = useRouter()
           items-center
           text=" black/70"
           border="0 r solid gray-200"
+          @click="router.push('/wallet')"
         >
           <div mb-1 text-base>
-            0
+            {{ userInfo?.balance ?? 0 }}
           </div>
           <div text-xs>
             我的余额
@@ -61,7 +176,7 @@ const router = useRouter()
           border="0 r solid gray-200"
         >
           <div mb-1 text-base>
-            0
+            {{ userInfo?.points ?? 0 }}
           </div>
           <div text-xs>
             我的积分
@@ -70,7 +185,7 @@ const router = useRouter()
 
         <div flex="~ col" items-center text=" black/70">
           <div mb-1 text-base>
-            0
+            {{ userInfo?.coupon ?? 0 }}
           </div>
           <div text-xs>
             优惠券
@@ -96,35 +211,45 @@ const router = useRouter()
 
       <div grid="~ cols-5">
         <div flex="~ col" items-center text="black/60">
-          <div i-solar-wallet-money-broken mb-2 text-xl />
+          <van-badge :content="userInfo?.due ?? 0" :show-zero="false">
+            <div i-solar-wallet-money-broken mb-2 text-xl />
+          </van-badge>
           <div text-xs>
             待付款
           </div>
         </div>
 
         <div flex="~ col" items-center text="black/60">
-          <div i-solar-users-group-rounded-outline mb-2 text-xl />
+          <van-badge :content="userInfo?.grouped ?? 0" :show-zero="false">
+            <div i-solar-users-group-rounded-outline mb-2 text-xl />
+          </van-badge>
           <div text-xs>
             待成团
           </div>
         </div>
 
         <div flex="~ col" items-center text="black/60">
-          <div i-solar-clock-circle-linear mb-2 text-xl />
+          <van-badge :content="userInfo?.waitSend ?? 0" :show-zero="false">
+            <div i-solar-clock-circle-linear mb-2 text-xl />
+          </van-badge>
           <div text-xs>
             待发货
           </div>
         </div>
 
         <div flex="~ col" items-center text="black/60">
-          <div i-solar-bus-line-duotone mb-2 text-xl />
+          <van-badge :content="userInfo?.waitReceive ?? 0" :show-zero="false">
+            <div i-solar-bus-line-duotone mb-2 text-xl />
+          </van-badge>
           <div text-xs>
             待收货
           </div>
         </div>
 
         <div flex="~ col" items-center text="black/60">
-          <div i-solar-heart-angle-outline mb-2 text-xl />
+          <van-badge :content="userInfo?.waitComment ?? 0" :show-zero="false">
+            <div i-solar-heart-angle-outline mb-2 text-xl />
+          </van-badge>
           <div text-xs>
             待评价
           </div>
@@ -143,6 +268,27 @@ const router = useRouter()
           </div>
         </template>
       </van-cell>
+
+      <div
+        v-if="token"
+        flex="~ nowrap"
+        overflow="y-hidden x-auto"
+        mt-2
+        snap-x
+        gap-x-2
+        px-4
+      >
+        <img
+          v-for="item in popularRecommendations"
+          :key="item.id"
+          h-80px
+          flex="[0_0_80px]"
+          snap-start
+          object-cover
+          :src="item.image"
+          alt=""
+        >
+      </div>
 
       <van-cell is-link>
         <template #title>
@@ -234,16 +380,31 @@ const router = useRouter()
       </van-cell>
     </van-cell-group>
 
-    <div
-      text="black/80 center sm"
-      mb-3
-      rounded-lg
-      bg-white
-      py-3
-      @click="() => router.push('/login')"
-    >
-      去登录
-    </div>
+    <template v-if="!token">
+      <div
+        text="black/80 center sm"
+        mb-3
+        rounded-lg
+        bg-white
+        py-3
+        @click="() => router.push('/login')"
+      >
+        去登录
+      </div>
+    </template>
+
+    <template v-else>
+      <div
+        text="white center sm"
+        mb-3
+        rounded-lg
+        bg-red
+        py-3
+        @click="handleLogout"
+      >
+        退出登录
+      </div>
+    </template>
   </div>
 </template>
 

@@ -140,6 +140,31 @@ const routes: RouteRecordRaw[] = [
           noCache: true,
         },
       },
+      {
+        path: '/integral/signIn',
+        name: 'IntegralSignIn',
+        component: () => import('@/views/integral/signIn.vue'),
+        meta: {
+          title: '每日签到',
+        },
+      },
+      {
+        path: '/integral/detail',
+        name: 'IntegralDetail',
+        component: () => import('@/views/integral/detail.vue'),
+        meta: {
+          title: '积分明细',
+          noCache: true,
+        },
+      },
+      {
+        path: '/wallet',
+        name: 'Wallet',
+        component: () => import('@/views/wallet/index.vue'),
+        meta: {
+          title: '我的钱包',
+        },
+      },
     ],
   },
 ]

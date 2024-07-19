@@ -6,11 +6,47 @@ defineOptions({
 
 const router = useRouter()
 
-const accountFormParams = ref({
+const { login } = useUserStore()
+
+const accountFormParams = ref<{
+  phone: any
+  password: any
+  rememberme: any
+}>({
   phone: 'admin',
   password: '123456',
   rememberme: false,
 })
+
+async function handleLogin() {
+  if (!accountFormParams.value.phone) {
+    return showFailToast({
+      message: '账号不能为空!',
+    })
+  }
+  else if (!accountFormParams.value.password) {
+    return showFailToast({
+      message: '密码不能为空!',
+    })
+  }
+  const loading = showLoadingToast({
+    message: '加载中...',
+    forbidClick: true,
+    duration: 0,
+  })
+  try {
+    await login()
+    router.back()
+    setTimeout(() => {
+      showSuccessToast({
+        message: '登录成功!',
+      })
+    })
+  }
+  finally {
+    loading.close()
+  }
+}
 </script>
 
 <template>
@@ -96,6 +132,7 @@ const accountFormParams = ref({
           to="#2C5364"
           bg-gradient-to-r
           py-3
+          @click="handleLogin"
         >
           登 录
         </div>
