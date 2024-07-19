@@ -271,6 +271,7 @@ function handleBuy() {
                 h-95px
                 w-95px
                 object-cover
+                alt="comment images"
                 @click="handleImagePreview(item.commentImages, picIndex)"
               >
             </div>

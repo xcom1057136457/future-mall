@@ -22,11 +22,24 @@ const router = useRouter()
       支付成功 !
     </div>
 
-    <div text="white center sm" mb-5 rounded-full bg-red py-3 @click="router.push({ name: 'OrderDetail' })">
+    <div
+      text="white center sm"
+      mb-5
+      rounded-full
+      bg-red
+      py-3
+      @click="router.push({ name: 'OrderDetail' })"
+    >
       查看订单
     </div>
 
-    <div border="~ solid gray-200" text="sm center black/80" rounded-full py-3 @click="router.back()">
+    <div
+      border="~ solid gray-200"
+      text="sm center black/80"
+      rounded-full
+      py-3
+      @click="router.back()"
+    >
       返回
     </div>
   </div>
