@@ -1,1 +1,0 @@
-import{a4 as e}from"./index-DMlscLwg.js";function s(){return e({url:"/address/list",method:"get"})}function t(){return e({url:"/address/add",method:"post"})}function r(){return e({url:"/address/edit",method:"put"})}function a(){return e({url:"/address/delete",method:"delete"})}export{t as a,a as d,r as e,s as g};
