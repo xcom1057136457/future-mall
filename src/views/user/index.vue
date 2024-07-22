@@ -14,14 +14,9 @@ const { logout } = useUserStore()
 
 // 签到
 function handleSignIn() {
-  if (token.value) {
-    router.push({
-      name: 'IntegralSignIn',
-    })
-  }
-  else {
-    router.push('/login')
-  }
+  router.push({
+    name: 'IntegralSignIn',
+  })
 }
 
 // 获取我的足迹
@@ -145,9 +140,7 @@ function handleLogout() {
           border="~ solid red"
           rounded-2xl
           p="x-3 y-1"
-          @click="
-            () => (token ? router.push('/vipBuy') : router.push('/login'))
-          "
+          @click="() => router.push({ name: 'VipBuy' })"
         >
           立即开通
         </div>
@@ -159,10 +152,10 @@ function handleLogout() {
           items-center
           text=" black/70"
           border="0 r solid gray-200"
-          @click="router.push('/wallet')"
+          @click="router.push({ name: 'Wallet' })"
         >
           <div mb-1 text-base>
-            {{ userInfo?.balance ?? 0 }}
+            ￥{{ userInfo?.balance ?? 0 }}
           </div>
           <div text-xs>
             我的余额

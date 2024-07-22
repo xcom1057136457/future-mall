@@ -6,7 +6,7 @@ nProgress.configure({
   showSpinner: false,
 })
 
-router.beforeEach(async (to, from, next) => {
+router.beforeEach(async (to, _, next) => {
   nProgress.start()
   useHead({
     title: to.meta?.title ? `Future Mall - ${to.meta?.title}` : `Future Mall`,
@@ -27,6 +27,9 @@ router.beforeEach(async (to, from, next) => {
         next()
       }
     }
+  }
+  else if (to.meta.needAuth !== false) {
+    next(`/login?redirect=${to.fullPath}`)
   }
   else {
     next()

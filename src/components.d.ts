@@ -7,6 +7,9 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    AppFooter: typeof import('./components/AppFooter/index.vue')['default']
+    AppHeader: typeof import('./components/AppHeader/index.vue')['default']
+    AppMain: typeof import('./components/AppMain/index.vue')['default']
     CouponPop: typeof import('./components/CouponPop/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
@@ -23,6 +26,7 @@ declare module 'vue' {
     VanCircle: typeof import('vant/es')['Circle']
     VanConfigProvider: typeof import('vant/es')['ConfigProvider']
     VanCouponList: typeof import('vant/es')['CouponList']
+    VanDialog: typeof import('vant/es')['Dialog']
     VanEmpty: typeof import('vant/es')['Empty']
     VanIcon: typeof import('vant/es')['Icon']
     VanImage: typeof import('vant/es')['Image']

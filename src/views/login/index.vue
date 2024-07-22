@@ -6,6 +6,8 @@ defineOptions({
 
 const router = useRouter()
 
+const route = useRoute()
+
 const { login } = useUserStore()
 
 const accountFormParams = ref<{
@@ -36,7 +38,12 @@ async function handleLogin() {
   })
   try {
     await login()
-    router.back()
+    if (route.query?.redirect) {
+      await router.replace(route.query.redirect as string)
+    }
+    else {
+      router.back()
+    }
     setTimeout(() => {
       showSuccessToast({
         message: '登录成功!',
@@ -50,17 +57,7 @@ async function handleLogin() {
 </script>
 
 <template>
-  <van-nav-bar
-    title="登录"
-    left-text="返回"
-    safe-area-inset-top
-    left-arrow
-    fixed
-    :z-index="10"
-    @click-left="() => router.back()"
-  />
-
-  <div box-border h-full p="3 t-58px">
+  <div box-border p-2 h="[calc(100vh-46px)]">
     <div relative box-border h-full rounded bg-white p-3>
       <div mb-4 flex items-center justify-center>
         <svg-icon icon-class="planet" text-180px />

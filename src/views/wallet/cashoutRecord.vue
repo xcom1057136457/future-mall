@@ -1,24 +1,24 @@
-<!-- 由 Dioa 创建于 2024-07-19 星期五 -->
+<!-- 由 Dioa 创建于 2024-07-22 星期一 -->
 <script setup lang="ts">
-import { getIntegralDetail } from '@/api/integral'
+import { getCashoutRecord } from '@/api/wallet'
 
 defineOptions({
-  name: 'IntegralDetail',
+  name: 'CashoutRecord',
 })
 
-// 获取明细
-const integralList = ref<any[]>([])
+// 获取提现记录
+const cashoutRecordList = ref<any[]>([])
 
-async function loadIntegralDetail() {
+async function loadCashoutRecord() {
   const loading = showLoadingToast({
     message: '加载中...',
     forbidClick: true,
     duration: 0,
   })
   try {
-    const { code, data }: any = await getIntegralDetail()
+    const { code, data }: any = await getCashoutRecord()
     if (code === 200) {
-      integralList.value = data
+      cashoutRecordList.value = data
     }
   }
   finally {
@@ -26,13 +26,13 @@ async function loadIntegralDetail() {
   }
 }
 
-loadIntegralDetail()
+loadCashoutRecord()
 </script>
 
 <template>
   <div p-2 space-y-2>
     <div
-      v-for="item in integralList"
+      v-for="item in cashoutRecordList"
       :key="item.id"
       flex
       items-center
@@ -46,9 +46,12 @@ loadIntegralDetail()
 
       <div flex="~ col" items-end space-y-2>
         <div text="sm black/80">
-          {{ `${item.symbol} ${item.integral}` }}
+          ￥{{ item.money }}
         </div>
-        <div text="xs black/60">
+        <div
+          text="xs black/60"
+          :class="{ '!text-red': item.type === '已提现' }"
+        >
           {{ item.type }}
         </div>
       </div>

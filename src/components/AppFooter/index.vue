@@ -17,6 +17,7 @@ watch(
   () => {
     if (route.meta?.activeMenu) {
       activeMenu.value = route.meta?.activeMenu as string
+      return
     }
     activeMenu.value = route.path
   },
