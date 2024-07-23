@@ -89,7 +89,7 @@ function handleLogout() {
         </div>
       </div>
 
-      <div v-else flex items-center gap-x-2>
+      <div v-else flex items-center gap-x-2 @click="router.push({ name: 'Personal' })">
         <img
           :src="userInfo.avatar"
           h-70px
@@ -140,7 +140,7 @@ function handleLogout() {
           border="~ solid red"
           rounded-2xl
           p="x-3 y-1"
-          @click="() => router.push({ name: 'VipBuy' })"
+          @click="router.push({ name: 'VipBuy' })"
         >
           立即开通
         </div>
@@ -167,6 +167,7 @@ function handleLogout() {
           items-center
           text=" black/70"
           border="0 r solid gray-200"
+          @click="router.push({ name: 'IntegralCenter' })"
         >
           <div mb-1 text-base>
             {{ userInfo?.points ?? 0 }}

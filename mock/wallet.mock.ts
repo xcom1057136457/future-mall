@@ -57,6 +57,7 @@ export default [
         list.push({
           id: Random.guid(),
           type: Random.pick(['拼团订单退款', '订单退款', '微信支付']),
+          time: Random.date('yyyy-MM-dd HH:mm:ss'),
           wechatPayType: Random.pick(['已付款', '待审核']),
           money: Random.float(0, 1000, 0, 2),
         })

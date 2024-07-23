@@ -7,7 +7,7 @@ export default [
       {
         path: 'buy',
         name: 'VipBuy',
-        component: () => import('@/views/vipBuy/index.vue'),
+        component: () => import('@/views/vip/buy.vue'),
         meta: {
           title: '购买会员',
         },

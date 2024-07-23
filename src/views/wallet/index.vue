@@ -11,6 +11,11 @@ const router = useRouter()
 const moneyIndex = ref(0)
 
 const withdrawShow = ref(false)
+
+// 充值
+const rechargeShow = ref(false)
+
+const payType = ref('1')
 </script>
 
 <template>
@@ -202,7 +207,7 @@ const withdrawShow = ref(false)
         text="sm black/70"
       >
 
-      <div rounded-full bg-red py-2>
+      <div rounded-full bg-red py-2 @click="rechargeShow = true">
         <div text="sm center white">
           马上充值
         </div>
@@ -218,6 +223,54 @@ const withdrawShow = ref(false)
   </div>
 
   <withdraw-dialog v-model:visible="withdrawShow" />
+
+  <van-popup v-model:show="rechargeShow" position="bottom" round>
+    <div p="x-3 y-8">
+      <div text="center sm" mb-3>
+        余额充值￥
+        <span text="2xl" font-semibold>
+          {{
+            moneyIndex === 0
+              ? 50
+              : moneyIndex === 1
+                ? 100
+                : moneyIndex === 2
+                  ? 500
+                  : ""
+          }}
+        </span>
+      </div>
+
+      <van-radio-group v-model="payType" mb-6>
+        <van-cell-group :border="false">
+          <van-cell clickable @click="payType = '1'">
+            <template #title>
+              <div flex items-center gap-x-3>
+                <van-icon name="wechat" text="40px green-6" />
+
+                <div space-y-2>
+                  <div text="sm">
+                    微信支付
+                  </div>
+                  <div text="xs black/60">
+                    推荐使用，拉起微信支付
+                  </div>
+                </div>
+              </div>
+            </template>
+
+            <template #right-icon>
+              <van-radio name="1" />
+            </template>
+          </van-cell>
+        </van-cell-group>
+      </van-radio-group>
+
+      <div p="y-3" text="sm center white" rounded-full bg-red>
+        支付
+      </div>
+    </div>
+  </van-popup>
 </template>
 
 <style scoped lang="scss"></style>

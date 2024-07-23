@@ -15,3 +15,19 @@ export function getIntegralDetail() {
     method: 'get',
   })
 }
+
+// 获取积分订单
+export function getIntegralOrderList() {
+  return request({
+    url: '/integral/order/list',
+    method: 'get',
+  })
+}
+
+// 获取订单详情
+export function getOrderDetail() {
+  return request({
+    url: '/integral/order/detail',
+    method: 'get',
+  })
+}

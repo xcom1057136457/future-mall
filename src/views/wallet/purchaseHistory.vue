@@ -43,7 +43,7 @@ loadPurchaseHistory()
       <div flex items-center gap-x-2>
         <div i-solar-cart-large-minimalistic-bold-duotone text="red 3xl" />
 
-        <div>
+        <div space-y-1>
           <div text="sm black/80">
             订单支付
           </div>

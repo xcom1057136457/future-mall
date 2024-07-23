@@ -13,7 +13,14 @@ const router = useRouter()
     <div text="base black/40" mb-8 font-semibold>
       OOPS~~ 页面好像被外星人带走了！
     </div>
-    <div text="sm white center" w-300px rounded-full bg-red py-3 @click="router.replace('/')">
+    <div
+      text="sm white center"
+      w-300px
+      rounded-full
+      bg-red
+      py-3
+      @click="router.replace('/')"
+    >
       返回首页
     </div>
   </div>
