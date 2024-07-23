@@ -26,7 +26,7 @@ const couponShow = ref(false)
       bg="red-100"
       p="x-3 y-3"
       rounded-lg
-      @click="() => router.push({ name: 'VipBuy' })"
+      @click="() => router.push({ name: 'MemberNot' })"
     >
       <div>￥1元开通年VIP会员，尊享5大权益</div>
 
