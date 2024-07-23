@@ -64,14 +64,25 @@ function handleGoDetail(id: any) {
               {{ userInfo.nickname }}
             </div>
 
-            <div flex items-center text="xs black/60">
+            <div
+              flex
+              items-center
+              text="xs black/60"
+              @click="router.push({ name: 'IntegralDetail' })"
+            >
               <span>积分明细</span>
               <div i-solar-alt-arrow-right-line-duotone />
             </div>
           </div>
         </div>
 
-        <div text="xs black/80" rounded-full border="~ solid black" p="x-3 y-1" @click="router.push({ name: 'IntegralOrder' })">
+        <div
+          text="xs black/80"
+          rounded-full
+          border="~ solid black"
+          p="x-3 y-1"
+          @click="router.push({ name: 'IntegralOrder' })"
+        >
           我的兑换
         </div>
       </div>
@@ -135,6 +146,7 @@ function handleGoDetail(id: any) {
         <div
           flex="~ col items-center justify-center"
           border="0 r solid gray-100"
+          @click="router.push({ name: 'IntegralDetail' })"
         >
           <div mb-1 flex items-center gap-x-2>
             <div h-8px w-8px rounded-full bg-red />
@@ -150,6 +162,7 @@ function handleGoDetail(id: any) {
         <div
           flex="~ col items-center justify-center"
           border="0 r solid gray-100"
+          @click="router.push({ name: 'IntegralOrder' })"
         >
           <div mb-1 flex items-center gap-x-2>
             <div h-8px w-8px rounded-full bg-yellow />
@@ -162,7 +175,10 @@ function handleGoDetail(id: any) {
           </div>
         </div>
 
-        <div flex="~ col items-center justify-center">
+        <div
+          flex="~ col items-center justify-center"
+          @click="router.push({ name: 'IntegralDetail' })"
+        >
           <div mb-1 flex items-center gap-x-2>
             <div h-8px w-8px rounded-full bg-green />
             <div text="base black/80" font-semibold>
@@ -177,7 +193,16 @@ function handleGoDetail(id: any) {
     </div>
 
     <div grid="~ cols-2" gap-x-2>
-      <div flex items-center justify-center gap-x-2 rounded-lg bg-white p-3>
+      <div
+        flex
+        items-center
+        justify-center
+        gap-x-2
+        rounded-lg
+        bg-white
+        p-3
+        @click="router.push({ name: 'IntegralLottery' })"
+      >
         <div i-solar-hamburger-menu-bold-duotone text="red 44px" />
         <div>
           <div text="sm black/80" font-semibold>
@@ -189,7 +214,16 @@ function handleGoDetail(id: any) {
         </div>
       </div>
 
-      <div flex items-center justify-center gap-x-2 rounded-lg bg-white p-3>
+      <div
+        flex
+        items-center
+        justify-center
+        gap-x-2
+        rounded-lg
+        bg-white
+        p-3
+        @click="router.push({ name: 'IntegralList' })"
+      >
         <div i-solar-hamburger-menu-bold-duotone text="yellow 44px" />
         <div>
           <div text="sm black/80" font-semibold>

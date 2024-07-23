@@ -177,7 +177,7 @@ function handleLogout() {
           </div>
         </div>
 
-        <div flex="~ col" items-center text=" black/70">
+        <div flex="~ col" items-center text=" black/70" @click="router.push({ name: 'Coupon' })">
           <div mb-1 text-base>
             {{ userInfo?.coupon ?? 0 }}
           </div>

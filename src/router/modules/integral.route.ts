@@ -47,6 +47,22 @@ export default [
           noCache: true,
         },
       },
+      {
+        path: 'lottery',
+        name: 'IntegralLottery',
+        component: () => import('@/views/integral/lottery.vue'),
+        meta: {
+          title: '积分抽奖',
+        },
+      },
+      {
+        path: 'list',
+        name: 'IntegralList',
+        component: () => import('@/views/integral/list.vue'),
+        meta: {
+          title: '积分商城',
+        },
+      },
     ],
   },
 ] as RouteRecordRaw[]
