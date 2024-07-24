@@ -3,23 +3,14 @@ import {
   createRouter,
   createWebHashHistory,
 } from 'vue-router'
-import address from './modules/address.route'
-import coupon from './modules/coupon.route'
-import integral from './modules/integral.route'
-import order from './modules/order.route'
-import pay from './modules/pay.route'
-import product from './modules/product.route'
-import setting from './modules/setting.route'
-import vip from './modules/vip.route'
-import wallet from './modules/wallet.route'
 
-// const routeModules = import.meta.glob('./modules/*.route.ts', { eager: true })
-//
-// const moduleRoutes: any[] = []
-//
-// Object.values(routeModules).forEach((module: any) => {
-//   moduleRoutes.push(...module.default)
-// })
+const routeModules = import.meta.glob('./modules/*.route.ts', { eager: true })
+
+const moduleRoutes: any[] = []
+
+Object.values(routeModules).forEach((module: any) => {
+  moduleRoutes.push(...module.default)
+})
 
 const routes: RouteRecordRaw[] = [
   {
@@ -96,16 +87,7 @@ const routes: RouteRecordRaw[] = [
       needAuth: false,
     },
   },
-  ...address,
-  ...coupon,
-  ...integral,
-  ...order,
-  ...pay,
-  ...product,
-  ...setting,
-  ...vip,
-  ...wallet,
-  // ...moduleRoutes,
+  ...moduleRoutes,
 ]
 
 const router = createRouter({
