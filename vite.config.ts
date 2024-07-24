@@ -6,7 +6,7 @@ import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { VantResolver } from '@vant/auto-import-resolver'
-// import viteCompression from 'vite-plugin-compression'
+import viteCompression from 'vite-plugin-compression'
 import { viteMockServe } from 'vite-plugin-mock'
 import pxtovw from 'postcss-px-to-viewport-8-plugin'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
@@ -28,7 +28,7 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd())
 
   return {
-    base: env.VITE_USER_NODE_ENV === 'development' ? '' : '/future-mall/',
+    // base: env.VITE_USER_NODE_ENV === 'development' ? '' : '/future-mall/',
     plugins: [
       vue(),
       UnoCSS(),
@@ -43,13 +43,13 @@ export default defineConfig(({ mode }) => {
         resolvers: [VantResolver()],
         dts: 'src/components.d.ts',
       }),
-      // viteCompression({
-      //   verbose: true,
-      //   disable: false,
-      //   threshold: 10240,
-      //   algorithm: 'gzip',
-      //   ext: '.gz',
-      // }),
+      viteCompression({
+        verbose: true,
+        disable: false,
+        threshold: 10240,
+        algorithm: 'gzip',
+        ext: '.gz',
+      }),
       viteMockServe({
         mockPath: 'mock',
         prodEnabled: true,
