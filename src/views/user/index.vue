@@ -1,7 +1,5 @@
 <!-- 由 Dioa 创建于 2024-07-15 星期一 -->
 <script lang="ts" setup>
-import { getBasicData } from '@/api/home'
-
 defineOptions({
   name: 'User',
 })
@@ -18,32 +16,6 @@ function handleSignIn() {
     name: 'IntegralSignIn',
   })
 }
-
-// 获取我的足迹
-const popularRecommendations = ref<any[]>([])
-
-async function loadBasicData() {
-  const loading = showLoadingToast({
-    message: '加载中...',
-    duration: 0,
-    forbidClick: true,
-  })
-  try {
-    const { code, data }: any = await getBasicData()
-    if (code === 200) {
-      popularRecommendations.value = data?.popularRecommendations ?? []
-    }
-  }
-  finally {
-    loading.close()
-  }
-}
-
-onMounted(() => {
-  if (token.value) {
-    loadBasicData()
-  }
-})
 
 // 退出登录
 function handleLogout() {
@@ -273,7 +245,7 @@ function handleLogout() {
         px-4
       >
         <img
-          v-for="item in popularRecommendations"
+          v-for="item in userInfo.footmark"
           :key="item.id"
           h-80px
           flex="[0_0_80px]"
