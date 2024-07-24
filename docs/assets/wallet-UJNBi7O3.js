@@ -1,1 +1,0 @@
-import{a3 as e}from"./index-D_DH6_f3.js";function t(){return e({url:"/wallet/cashoutRecord",method:"get"})}function o(){return e({url:"/wallet/purchaseHistory",method:"get"})}function a(){return e({url:"/wallet/rechargeRecord",method:"get"})}export{o as a,a as b,t as g};

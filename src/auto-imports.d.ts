@@ -414,10 +414,8 @@ declare module 'vue' {
     readonly shallowRef: UnwrapRef<typeof import('vue')['shallowRef']>
     readonly showConfirmDialog: UnwrapRef<typeof import('vant/es')['showConfirmDialog']>
     readonly showFailToast: UnwrapRef<typeof import('vant/es')['showFailToast']>
-    readonly showImagePreview: UnwrapRef<typeof import('vant/es')['showImagePreview']>
     readonly showLoadingToast: UnwrapRef<typeof import('vant/es')['showLoadingToast']>
     readonly showSuccessToast: UnwrapRef<typeof import('vant/es')['showSuccessToast']>
-    readonly showToast: UnwrapRef<typeof import('vant/es')['showToast']>
     readonly storeToRefs: UnwrapRef<typeof import('pinia')['storeToRefs']>
     readonly syncRef: UnwrapRef<typeof import('@vueuse/core')['syncRef']>
     readonly syncRefs: UnwrapRef<typeof import('@vueuse/core')['syncRefs']>
@@ -720,10 +718,8 @@ declare module '@vue/runtime-core' {
     readonly shallowRef: UnwrapRef<typeof import('vue')['shallowRef']>
     readonly showConfirmDialog: UnwrapRef<typeof import('vant/es')['showConfirmDialog']>
     readonly showFailToast: UnwrapRef<typeof import('vant/es')['showFailToast']>
-    readonly showImagePreview: UnwrapRef<typeof import('vant/es')['showImagePreview']>
     readonly showLoadingToast: UnwrapRef<typeof import('vant/es')['showLoadingToast']>
     readonly showSuccessToast: UnwrapRef<typeof import('vant/es')['showSuccessToast']>
-    readonly showToast: UnwrapRef<typeof import('vant/es')['showToast']>
     readonly storeToRefs: UnwrapRef<typeof import('pinia')['storeToRefs']>
     readonly syncRef: UnwrapRef<typeof import('@vueuse/core')['syncRef']>
     readonly syncRefs: UnwrapRef<typeof import('@vueuse/core')['syncRefs']>
