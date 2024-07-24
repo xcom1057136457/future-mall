@@ -140,7 +140,7 @@ function handleLogout() {
           border="~ solid red"
           rounded-2xl
           p="x-3 y-1"
-          @click="router.push({ name: 'MemberNot' })"
+          @click="router.push({ name: 'VipBuy' })"
         >
           立即开通
         </div>
