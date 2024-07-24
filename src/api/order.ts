@@ -15,3 +15,11 @@ export function deleteOrder() {
     method: 'delete',
   })
 }
+
+// 获取订单列表
+export function getOrderList() {
+  return request({
+    url: '/order/list',
+    method: 'get',
+  })
+}

@@ -10,6 +10,13 @@ router.beforeEach(async (to, _, next) => {
   nProgress.start()
   useHead({
     title: to.meta?.title ? `Future Mall - ${to.meta?.title}` : `Future Mall`,
+    link: [
+      {
+        rel: 'icon',
+        type: 'image/svg+xml',
+        href: () => '/favicon.svg',
+      },
+    ],
   })
   const { getToken } = useAuth()
   const { getUserInfo } = useUserStore()

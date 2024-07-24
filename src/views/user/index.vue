@@ -61,7 +61,13 @@ function handleLogout() {
         </div>
       </div>
 
-      <div v-else flex items-center gap-x-2 @click="router.push({ name: 'Personal' })">
+      <div
+        v-else
+        flex
+        items-center
+        gap-x-2
+        @click="router.push({ name: 'Personal' })"
+      >
         <img
           :src="userInfo.avatar"
           h-70px
@@ -149,7 +155,12 @@ function handleLogout() {
           </div>
         </div>
 
-        <div flex="~ col" items-center text=" black/70" @click="router.push({ name: 'Coupon' })">
+        <div
+          flex="~ col"
+          items-center
+          text=" black/70"
+          @click="router.push({ name: 'Coupon' })"
+        >
           <div mb-1 text-base>
             {{ userInfo?.coupon ?? 0 }}
           </div>
@@ -169,14 +180,25 @@ function handleLogout() {
           </div>
         </div>
 
-        <div flex items-center gap-x-2 text="xs black/60">
+        <div
+          flex
+          items-center
+          gap-x-2
+          text="xs black/60"
+          @click="router.push({ name: 'Order' })"
+        >
           <div>查看全部订单</div>
           <div i-solar-alt-arrow-right-line-duotone />
         </div>
       </div>
 
       <div grid="~ cols-5">
-        <div flex="~ col" items-center text="black/60">
+        <div
+          flex="~ col"
+          items-center
+          text="black/60"
+          @click="router.push({ name: 'Order', query: { type: 1 } })"
+        >
           <van-badge :content="userInfo?.due ?? 0" :show-zero="false">
             <div i-solar-wallet-money-broken mb-2 text-xl />
           </van-badge>
@@ -185,7 +207,12 @@ function handleLogout() {
           </div>
         </div>
 
-        <div flex="~ col" items-center text="black/60">
+        <div
+          flex="~ col"
+          items-center
+          text="black/60"
+          @click="router.push({ name: 'Order', query: { type: 2 } })"
+        >
           <van-badge :content="userInfo?.grouped ?? 0" :show-zero="false">
             <div i-solar-users-group-rounded-outline mb-2 text-xl />
           </van-badge>
@@ -194,7 +221,12 @@ function handleLogout() {
           </div>
         </div>
 
-        <div flex="~ col" items-center text="black/60">
+        <div
+          flex="~ col"
+          items-center
+          text="black/60"
+          @click="router.push({ name: 'Order', query: { type: 3 } })"
+        >
           <van-badge :content="userInfo?.waitSend ?? 0" :show-zero="false">
             <div i-solar-clock-circle-linear mb-2 text-xl />
           </van-badge>
@@ -203,7 +235,12 @@ function handleLogout() {
           </div>
         </div>
 
-        <div flex="~ col" items-center text="black/60">
+        <div
+          flex="~ col"
+          items-center
+          text="black/60"
+          @click="router.push({ name: 'Order', query: { type: 4 } })"
+        >
           <van-badge :content="userInfo?.waitReceive ?? 0" :show-zero="false">
             <div i-solar-bus-line-duotone mb-2 text-xl />
           </van-badge>
@@ -212,7 +249,12 @@ function handleLogout() {
           </div>
         </div>
 
-        <div flex="~ col" items-center text="black/60">
+        <div
+          flex="~ col"
+          items-center
+          text="black/60"
+          @click="router.push({ name: 'Order', query: { type: 5 } })"
+        >
           <van-badge :content="userInfo?.waitComment ?? 0" :show-zero="false">
             <div i-solar-heart-angle-outline mb-2 text-xl />
           </van-badge>

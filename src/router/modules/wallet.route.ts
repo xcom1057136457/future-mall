@@ -5,7 +5,7 @@ export default [
     path: '/wallet',
     children: [
       {
-        path: 'index',
+        path: '',
         name: 'Wallet',
         component: () => import('@/views/wallet/index.vue'),
         meta: {

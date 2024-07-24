@@ -5,7 +5,7 @@ export default [
     path: '/address',
     children: [
       {
-        path: 'index',
+        path: '',
         name: 'AddressPage',
         component: () => import('@/views/address/index.vue'),
         meta: {

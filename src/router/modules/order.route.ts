@@ -5,6 +5,15 @@ export default [
     path: '/order',
     children: [
       {
+        path: '',
+        name: 'Order',
+        component: () => import('@/views/order/index.vue'),
+        meta: {
+          title: '全部订单',
+          noCache: true,
+        },
+      },
+      {
         path: 'create/:id',
         name: 'OrderCreate',
         component: () => import('@/views/order/create.vue'),

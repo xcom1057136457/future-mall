@@ -82,7 +82,7 @@ loadData()
             积分
           </div>
 
-          <div text="sm black/70">
+          <div text="xs black/70">
             待发货
           </div>
         </div>
@@ -135,7 +135,7 @@ loadData()
             积分
           </div>
 
-          <div text="sm black/70">
+          <div text="xs black/70">
             待发货
           </div>
         </div>
