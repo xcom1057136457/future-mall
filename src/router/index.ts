@@ -76,6 +76,7 @@ const routes: RouteRecordRaw[] = [
       hasTabbar: true,
       hasNavbar: false,
       needAuth: false,
+      noCache: true,
     },
   },
   {
