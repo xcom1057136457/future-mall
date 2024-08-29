@@ -4,7 +4,7 @@ defineOptions({
   name: 'CouponPop',
 })
 
-const coupopShow = defineModel('visible', { type: Boolean, default: false })
+const couponShow = defineModel('visible', { type: Boolean, default: false })
 
 const coupons = ref<any[]>([{
   available: 1,
@@ -21,14 +21,14 @@ const coupons = ref<any[]>([{
 const chosenCoupon = ref(-1)
 
 function onChange(index: any) {
-  coupopShow.value = false
+  couponShow.value = false
   chosenCoupon.value = index
 }
 </script>
 
 <template>
   <van-popup
-    v-model:show="coupopShow"
+    v-model:show="couponShow"
     round
     position="bottom"
     style="height: 90%; padding-top: 4px;"

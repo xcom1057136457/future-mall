@@ -16,7 +16,7 @@ export default [
     method: 'get',
     timeout: 300,
     response: () => {
-      const list = []
+      const list: any[] = []
 
       for (let i = 0; i < 50; i++) {
         list.push({
@@ -39,7 +39,7 @@ export default [
     method: 'get',
     timeout: 300,
     response: () => {
-      const list = []
+      const list: any[] = []
 
       for (let i = 0; i < 10; i++) {
         list.push({

@@ -8,10 +8,10 @@ export default [
     method: 'get',
     timeout: 300,
     response: () => {
-      const list = []
+      const list: any[] = []
 
       for (let i = 0; i < 50; i++) {
-        const obj = {
+        const obj: any = {
           id: Random.guid(),
           type: Random.pick([1, 2]),
           discount: null,

@@ -8,7 +8,7 @@ export default [
     method: 'get',
     timeout: 300,
     response: () => {
-      const allList = []
+      const allList: any[] = []
 
       for (let i = 0; i < 10; i++) {
         allList.push({
@@ -28,7 +28,7 @@ export default [
       const waitClustering = []
 
       // 待发货
-      const waitDeliverGoods = []
+      const waitDeliverGoods: any[] = []
 
       const deliverGoodsList = [
         {
@@ -87,7 +87,7 @@ export default [
       const waitEvaluate = []
 
       // 已完成
-      const completed = []
+      const completed: any[] = []
 
       const completedGoodsList = [
         {
